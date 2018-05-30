@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_05_30_091645) do
     t.string "cuisine"
     t.boolean "accepts_tenbis"
     t.text "address"
-    t.integer "max_delivery_time"
+    t.time "max_delivery_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_restaurants_on_name", unique: true
