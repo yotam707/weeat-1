@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2018_05_30_131654) do
     t.time "max_delivery_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "rating", precision: 8, scale: 2
+    t.decimal "rating", default: "0.0"
     t.index ["name"], name: "index_restaurants_on_name", unique: true
   end
 
