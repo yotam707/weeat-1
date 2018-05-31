@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  resources :restaurants
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      resources :restaurants
+    end
+  end
 end
