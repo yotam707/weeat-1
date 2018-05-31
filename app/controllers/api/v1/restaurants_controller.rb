@@ -1,7 +1,7 @@
 module Api
   module V1
     class RestaurantsController < ApplicationController
-      before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+      before_action :set_restaurant, only: [:show, :update, :destroy]
 
       # GET /restaurants
       def index
