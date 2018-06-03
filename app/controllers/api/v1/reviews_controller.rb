@@ -6,28 +6,41 @@ module Api
 
       # GET /restaurants/1/reviews
       def index
-        render_success(data: @restaurant.reviews)
+        @reviews = @restaurant.reviews
+        render json: @reviews, status: :ok
       end
 
       # GET /restaurants/1/reviews/2
       def show
-        @review ? render_success(data: @review) : render_failure(reason: @review.errors)
+        render json: @review, status: :ok
       end
 
       # POST /restaurants/1/reviews
       def create
-        @review = @restaurant.reviews.create(review_params)
-        @review.save ? render_success(data: @review) : render_failure(reason: @review.errors)
+        @review = @restaurant.reviews.new(review_params)
+        if @review.save
+          render json: @review, status: :created
+        else
+          render json: @review.errors, status: :unprocessable_entity
+        end
       end
 
       # PATCH/PUT /restaurants/1/review/1
       def update
-        @review.update(review_params) ? render_success(data: @review) : render_failure(reason: @review.errors)
+        if @review.update(review_params)
+          render json: @review, status: :no_content
+        else
+          render json: @review.errors, status: :unprocessable_entity
+        end
       end
 
       # DELETE /restaurants/1/review/1
       def destroy
-        @review.destroy ? render_success(data: :no_content) : render_failure(reason: @review.errors)
+        if @review.destroy
+          render json: :no_content, status: :no_content
+        else
+          render json: @review.errors, status: :unprocessable_entity
+        end
       end
 
       private

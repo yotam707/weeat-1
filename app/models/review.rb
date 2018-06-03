@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
-  belongs_to :restaurant
-  validates :rating, presence: true, inclusion: 0..3
+  validates :restaurant_id, :rating, :reviewer, presence: true
+  validates :rating, inclusion: 0..3
   attribute :reviewer, :string, default: 'anonymous'
+  belongs_to :restaurant
 end
