@@ -1,0 +1,35 @@
+.restaurant-box {
+  display: flex;
+  flex-flow: row;
+  margin-bottom: 20px;
+  background: white;
+  border-radius: 5px;
+}
+
+.details, .rating {
+  display: flex;
+  flex-flow: row;
+  margin: 10px;
+}
+.details {
+  padding-top: 15px;
+}
+
+.cuisine {
+  font-family: 'ef_cuisinesregular';
+  margin: 25px;
+  font-size: 45px;
+  color: #F54343;
+}
+
+.tenbis {
+    background-image: url("./tenbis.png");
+    width: 14px;
+    height: 10px;
+    margin-top: 5px;
+}
+
+h4{
+  text-transform:capitalize;
+  padding-right: 10px;
+}
