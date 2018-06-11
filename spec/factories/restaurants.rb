@@ -3,7 +3,7 @@ FactoryBot.define do
     name                { Faker::FunnyName.two_word_name }
     cuisine             { Faker::FunnyName.name }
     address             { Faker::Address.full_address }
-    accepts_tenbis      false
+    accepts_tenbis      { Faker::Boolean }
     max_delivery_time   "13:26:06"
     rating              { Faker::Number.rand(3) + Faker::Number.decimal(2).to_d % 1 }
 
@@ -13,6 +13,10 @@ FactoryBot.define do
 
     trait :italian do
       cuisine "Italian"
+    end
+
+    trait :missing_name do
+      name nil
     end
 
   end
