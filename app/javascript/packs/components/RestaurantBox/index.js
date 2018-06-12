@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from  './index.module.scss';
 import ReactStars from 'react-stars'
 import translateCuisine from './translate-cuisine';
 
-const RestaurantBox = ({ name, cuisine, accepts_tenbis, rating}) => (
+export default ({ name, cuisine, accepts_tenbis, rating}) =>
     <div className={styles["restaurant-box"]}>
         <span className={styles.cuisine}>{translateCuisine(cuisine)}</span>
         <div>
@@ -18,15 +17,3 @@ const RestaurantBox = ({ name, cuisine, accepts_tenbis, rating}) => (
             </div>
         </div>
     </div>
-);
-
-RestaurantBox.propTypes = {
-    name: PropTypes.string.isRequired,
-    cuisine: PropTypes.string.isRequired,
-    accepts_tenbis: PropTypes.bool.isRequired,
-    address: PropTypes.string,
-    max_delivery_time: PropTypes.string,
-    rating: PropTypes.string.isRequired
-};
-
-export default RestaurantBox;

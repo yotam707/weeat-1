@@ -6,10 +6,9 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 const AddRestaurantForm = props => {
-    const { error, handleSubmit, pristine, reset, submitting, hide, actions } = props;
+    const { error, handleSubmit, pristine, submitting, hide, addRestaurant, loadRestaurants } = props;
 
-    const submit = (restaurant) => actions.addRestaurant({ restaurant })
-        .then(_ => actions.loadRestaurants()).then(hide);
+    const submit = (restaurant) => addRestaurant({ restaurant }).then(loadRestaurants).then(hide);
 
     return (
         <form onSubmit={handleSubmit(submit)}>
@@ -60,8 +59,8 @@ const AddRestaurantForm = props => {
             </div>
             <div className={styles["form-checkbox"]}>
                 <label htmlFor="accepts_tenbis" className={styles["checkbox"]}>Accepts 10Bis
-                    <Field name="accepts_tenbis" id="accepts_tenbis" component="input" type="checkbox" defaultChecked={true}/>
-                    <span className={styles["checkmark"]}></span>
+                    <Field name="accepts_tenbis" id="accepts_tenbis" component="input" type="checkbox" checked={true}/>
+                    <span className={styles.checkmark}></span>
                 </label>
             </div>
             <div>
@@ -74,10 +73,9 @@ const AddRestaurantForm = props => {
     )
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    actions: bindActionCreators(Actions, dispatch)
-});
+const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch);
 
-
-export default connect(null, mapDispatchToProps)(reduxForm({ form: 'addRestaurant', initialValues: { accepts_tenbis: true } })(AddRestaurantForm))
+export default connect(null, mapDispatchToProps)
+    (reduxForm({ form: 'addRestaurant', initialValues: { accepts_tenbis: true } })
+    (AddRestaurantForm))
 
