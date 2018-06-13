@@ -4,5 +4,5 @@ import styles from  './index.module.scss';
 
 export default ({ restaurants }) =>
     <div className={styles["restaurants-list"]}>
-        { restaurants.map((restaurant, index) => (<RestaurantBox key={index} { ...restaurant } />)) }
+        { restaurants.map((restaurant) => (<RestaurantBox key={restaurant.id} { ...restaurant } />)) }
     </div>
