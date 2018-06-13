@@ -1,5 +1,5 @@
 import { SubmissionError } from 'redux-form'
-const RESTAURANTS_URL = 'http://localhost:3000/api/v1/restaurants';
+const RESTAURANTS_URL = `${window.location.origin}/api/v1/restaurants`;
 
 export const UPDATE_RESTAURANTS = 'UPDATE_RESTAURANTS';
 export const UPDATE_FILTERED_RESTAURANTS = 'UPDATE_FILTERED_RESTAURANTS';
