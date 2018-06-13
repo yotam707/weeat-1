@@ -9,6 +9,7 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'webpacker'
 gem 'turbolinks'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development do
   gem 'annotate'
